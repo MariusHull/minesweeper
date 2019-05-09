@@ -7,7 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 To run this app, you will need :
 
 - [Node.js](https://nodejs.org/en/) (v10.15.1)
-- nmp (v6.9.0)
+- Npm (v6.9.0)
 
 ## Launch it !
 

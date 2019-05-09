@@ -1,0 +1,21 @@
+@import "./global.scss";
+
+button {
+  margin: 10px;
+}
+
+.card {
+  background: $lightgrey1;
+  padding: 10px;
+  border: 10px;
+}
+
+h1 {
+  color: $white;
+  text-shadow: 1px 1px 1px #000000;
+}
+
+h3 {
+  color: $white;
+  text-shadow: 1px 1px 1px #000000;
+}

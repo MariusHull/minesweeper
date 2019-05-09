@@ -1,0 +1,20 @@
+@import "./global.scss";
+
+.cell {
+  height: 20px;
+  width: 20px;
+  padding: 0px;
+  border: solid 0.5px $lightgrey2;
+  font-size: 13px;
+  font-weight: 600;
+  background-color: $white;
+  text-align: center;
+}
+
+.cell .hidden {
+  background-color: #bdbdbd;
+  border-bottom: solid 2px $lightgrey1;
+  border-right: solid 2px $lightgrey1;
+  border-top: solid 2px $white;
+  border-left: solid 2px $white;
+}

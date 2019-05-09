@@ -8,12 +8,12 @@ class ModalSettings extends Component {
     this.state = {
       row: 8,
       col: 8,
-      mines: 10
+      mines: 10,
+      selected: "Beginner"
     };
   }
 
-  setParams = values => {};
-
+  // Updates the custom values.
   onCustom = e => {
     switch (e.target.id) {
       case "row":
@@ -31,19 +31,24 @@ class ModalSettings extends Component {
     }
   };
 
+  // Changes the number of columns, rows and mines passed to the game component.
   onChange = e => {
     switch (e.target.value) {
       case "beginner":
+        this.setState({ selected: "Beginner" });
         this.props.onChange("Beginner", 8, 8, 10);
         break;
       case "inter":
+        this.setState({ selected: "Intermediate" });
         this.props.onChange("Intermediate", 16, 16, 40);
         break;
       case "expert":
+        this.setState({ selected: "Expert" });
         this.props.onChange("Expert", 32, 16, 100);
         break;
 
       case "custom":
+        this.setState({ selected: "Custom" });
         this.props.onChange(
           "Custom",
           this.state.row,
@@ -57,21 +62,32 @@ class ModalSettings extends Component {
     }
   };
 
+  // Checks if another update is required (value modified after clicking custom) and closes the modal
   confirm = () => {
-    const { row, col, mines } = this.state;
-    if (
-      row < 17 &&
-      row > -1 &&
-      col > -1 &&
-      col < 33 &&
-      mines > 0 &&
-      mines < row * col
-    ) {
-      this.props.closeModal();
+    const { row, col, mines, selected } = this.state;
+    if (selected === "Custom") {
+      if (
+        row < 17 &&
+        row > -1 &&
+        col > -1 &&
+        col < 33 &&
+        mines > 0 &&
+        mines < row * col
+      ) {
+        this.props.onChange(
+          "Custom",
+          this.state.row,
+          this.state.col,
+          this.state.mines
+        );
+        this.props.closeModal();
+      } else {
+        window.alert(
+          "Please enter a number of rows between 0 and 16, of columns between 0 and 32 and at least 1 mine!"
+        );
+      }
     } else {
-      window.alert(
-        "Please enter a number of rows between 0 and 16, of columns between 0 and 32 and at least 1 mine!"
-      );
+      this.props.closeModal();
     }
   };
 

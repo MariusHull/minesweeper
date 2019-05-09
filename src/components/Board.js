@@ -4,18 +4,19 @@ import "../styles/global.scss";
 import "../styles/game.scss";
 
 class Board extends Component {
+  // Handles user's left clicks
   handleLeftClick = (e, value, indexes) => {
-    console.log("LB click ! ", e.button);
-    console.log("Cell value : ", value);
-    console.log("Index value : ", indexes[0], indexes[1]);
+    // For debugging purposes
+    // console.log("LB click ! ", e.button, "Cell value : ", value, "Index value : ", indexes[0], indexes[1]);
     this.props.reveal(indexes[0], indexes[1]);
   };
 
+  // Handles user's right clicks
   handleRightClick = (e, value, indexes) => {
+    // Prevents the menu from apearing
     e.preventDefault();
-    console.log("RB click ! ", e.button);
-    console.log("Cell value", value);
-    console.log("Index value : ", indexes[0], indexes[1]);
+    // For debugging purposes
+    // console.log("RB click ! ", e.button, "Cell value : ", value, "Index value : ", indexes[0], indexes[1]);
     this.props.flag(indexes[0], indexes[1]);
   };
 

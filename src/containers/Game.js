@@ -21,12 +21,14 @@ class Game extends Component {
 
   timer = undefined;
 
+  //Initiates the rows and columns to the good values on mounting.
   componentWillMount() {
     this.setState({
       rows: this.props.row,
       cols: this.props.col,
       mines: this.props.mines
     });
+    // Creates the board with the props values
     this.initBoard(this.props.row, this.props.col, this.props.mines);
   }
 
@@ -210,7 +212,7 @@ class Game extends Component {
         minesFound -= 1;
       }
     }
-    if (mines === minesFound) {
+    if (Number(mines) === minesFound) {
       this.setState({ status: "won" });
     }
     this.setState({ board, flags, minesFound });

@@ -17,6 +17,6 @@ To launch the app, download the repository and run :
 - `$npm install`
 - `$npm start`
 
-All of the other dependencies are included in the package.json, so they will be installed when you first use `$npm install`. You can now navigate to [localhost:3000](localhost:3000) to test it!
+All of the other dependencies are included in the package.json, so they will be installed when you first use `$npm install`. You can now navigate to [localhost:3000](http://localhost:3000) to test it!
 
 ## Enjoy the review as much as I enjoyed coding it !
